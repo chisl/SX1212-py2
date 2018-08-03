@@ -37,7 +37,10 @@ class SX1212_Base:
 	# Bits Chip_mode
 	# Transceiver mode: 
 	# Bits Freq_band
-	# Frequency band: 
+	# 3.2.5.1. Frequency band.
+	#           To guarantee the optimum operation of the VCO over the SX1212’s frequency and 
+	#           temperature ranges, the following settings should be programmed 
+	
 	# Bits Subbband
 	# Frequency Sub-band: 
 	# Register MCParam_2
@@ -55,45 +58,45 @@ class SX1212_Base:
 	# Bits OOK_thresh_type
 	# OOK  demodulator threshold type: 
 	# Bits IF_gain
-	# Gain on the IF chain: 
-	# Register MCParam_3
+	# 3.4.2. Gain on the IF chain: 
+	# Register MCParam_freq_dev
 	
-	def setMCParam_3(self, val):
-		"""Set register MCParam_3"""
-		self.write(REG.MCParam_3, val, 8)
-	def getMCParam_3(self):
-		"""Get register MCParam_3"""
-		return self.read(REG.MCParam_3, 8)
+	def setMCParam_freq_dev(self, val):
+		"""Set register MCParam_freq_dev"""
+		self.write(REG.MCParam_freq_dev, val, 8)
+	def getMCParam_freq_dev(self):
+		"""Get register MCParam_freq_dev"""
+		return self.read(REG.MCParam_freq_dev, 8)
 	# Bits Freq_dev
 	# 3.3.4-5: Single side frequency deviation in FSK Transmit mode:
 	#           Fdev = f_XTAL / (32 (D+1))          , 0 ≤ D ≤ 255, where D is the value in the register.
-	#           (d): D = “00000011” => Fdev = 100 kHz 
+	#           (d): D = “00000011" => Fdev = 100 kHz 
 	
-	# Register MCParam_4
+	# Register MCParam_BR_C
 	
-	def setMCParam_4(self, val):
-		"""Set register MCParam_4"""
-		self.write(REG.MCParam_4, val, 8)
-	def getMCParam_4(self):
-		"""Get register MCParam_4"""
-		return self.read(REG.MCParam_4, 8)
+	def setMCParam_BR_C(self, val):
+		"""Set register MCParam_BR_C"""
+		self.write(REG.MCParam_BR_C, val, 8)
+	def getMCParam_BR_C(self):
+		"""Get register MCParam_BR_C"""
+		return self.read(REG.MCParam_BR_C, 8)
 	# Bits BR_C
 	# C coefficient of the bit rate
 	#           Bit Rate = f_XTAL / ( 2 ⋅ (C + 1).(D + 1) )  , 0 ≤ C ≤ 255, where C is the value in the register.
-	#           (d): C =  “0000111”  => Bit Rate = 25 kb/s NRZ 
+	#           (d): C =  “0000111"  => Bit Rate = 25 kb/s NRZ 
 	
-	# Register MCParam_5
+	# Register MCParam_BR_D
 	
-	def setMCParam_5(self, val):
-		"""Set register MCParam_5"""
-		self.write(REG.MCParam_5, val, 8)
-	def getMCParam_5(self):
-		"""Get register MCParam_5"""
-		return self.read(REG.MCParam_5, 8)
+	def setMCParam_BR_D(self, val):
+		"""Set register MCParam_BR_D"""
+		self.write(REG.MCParam_BR_D, val, 8)
+	def getMCParam_BR_D(self):
+		"""Get register MCParam_BR_D"""
+		return self.read(REG.MCParam_BR_D, 8)
 	# Bits BR_D
 	# D coefficient of the bit rate
 	#           Bit Rate =f_XTAL / ( 2 ⋅ (C + 1).(D + 1) ) , 15 ≤ D ≤ 255, where D is the value in the register.
-	#           (d): D =  “0001111”  => Bit Rate = 25 kb/s NRZ 
+	#           (d): D =  “0001111"  => Bit Rate = 25 kb/s NRZ 
 	
 	# Register MCParam_6
 	
@@ -104,7 +107,7 @@ class SX1212_Base:
 		"""Get register MCParam_6"""
 		return self.read(REG.MCParam_6, 8)
 	# Bits PA_ramp
-	# Ramp control of the rise and fall times of the Tx PA regulator output voltage in
+	# 3.3.7.1. Ramp control of the rise and fall times of the Tx PA regulator output voltage in
 	#           OOK mode: 
 	
 	# Bits Low_power_rx
@@ -117,86 +120,86 @@ class SX1212_Base:
 	# Selection between the two RF frequencies defined by the
 	#           SynthRi, SynthPi, and SynthSi registers: 
 	
-	# Register MCParam_7
+	# Register MCParam_R1
 	
-	def setMCParam_7(self, val):
-		"""Set register MCParam_7"""
-		self.write(REG.MCParam_7, val, 8)
-	def getMCParam_7(self):
-		"""Get register MCParam_7"""
-		return self.read(REG.MCParam_7, 8)
+	def setMCParam_R1(self, val):
+		"""Set register MCParam_R1"""
+		self.write(REG.MCParam_R1, val, 8)
+	def getMCParam_R1(self):
+		"""Get register MCParam_R1"""
+		return self.read(REG.MCParam_R1, 8)
 	# Bits R1
-	# R counter, active when RPS_select=”0”
+	# 3.2.8. R counter, active when RPS_select="0"
 	#           (d):6Bh; default values of R1, P1, S1 generate 434.0 MHz in FSK mode 
 	
-	# Register MCParam_8
+	# Register MCParam_P1
 	
-	def setMCParam_8(self, val):
-		"""Set register MCParam_8"""
-		self.write(REG.MCParam_8, val, 8)
-	def getMCParam_8(self):
-		"""Get register MCParam_8"""
-		return self.read(REG.MCParam_8, 8)
+	def setMCParam_P1(self, val):
+		"""Set register MCParam_P1"""
+		self.write(REG.MCParam_P1, val, 8)
+	def getMCParam_P1(self):
+		"""Get register MCParam_P1"""
+		return self.read(REG.MCParam_P1, 8)
 	# Bits P1
-	# P counter, active when RPS_select=”0”
+	# 3.2.8. P counter, active when RPS_select="0"
 	#           (d): 2Ah; default values of R1, P1, S1 generate 434.0 MHz in FSK mode 
 	
-	# Register MCParam_9
+	# Register MCParam_S1
 	
-	def setMCParam_9(self, val):
-		"""Set register MCParam_9"""
-		self.write(REG.MCParam_9, val, 8)
-	def getMCParam_9(self):
-		"""Get register MCParam_9"""
-		return self.read(REG.MCParam_9, 8)
+	def setMCParam_S1(self, val):
+		"""Set register MCParam_S1"""
+		self.write(REG.MCParam_S1, val, 8)
+	def getMCParam_S1(self):
+		"""Get register MCParam_S1"""
+		return self.read(REG.MCParam_S1, 8)
 	# Bits S1
-	# S counter, active when RPS_select=”0”
+	# 3.2.8. S counter, active when RPS_select="0"
 	#           (d): 1Eh; default values of R1, P1, S1 generate 434.0 MHz in FSK mode 
 	
-	# Register MCParam_10
+	# Register MCParam_R2
 	
-	def setMCParam_10(self, val):
-		"""Set register MCParam_10"""
-		self.write(REG.MCParam_10, val, 8)
-	def getMCParam_10(self):
-		"""Get register MCParam_10"""
-		return self.read(REG.MCParam_10, 8)
+	def setMCParam_R2(self, val):
+		"""Set register MCParam_R2"""
+		self.write(REG.MCParam_R2, val, 8)
+	def getMCParam_R2(self):
+		"""Get register MCParam_R2"""
+		return self.read(REG.MCParam_R2, 8)
 	# Bits R2
-	# R counter, active when RPS_select=”1”
+	# 3.2.8. R counter, active when RPS_select="1"
 	#           (d): 77h; default values of R2, P2, S2 generate 435.0 MHz in FSK mode 
 	
-	# Register MCParam_11
+	# Register MCParam_P2
 	
-	def setMCParam_11(self, val):
-		"""Set register MCParam_11"""
-		self.write(REG.MCParam_11, val, 8)
-	def getMCParam_11(self):
-		"""Get register MCParam_11"""
-		return self.read(REG.MCParam_11, 8)
+	def setMCParam_P2(self, val):
+		"""Set register MCParam_P2"""
+		self.write(REG.MCParam_P2, val, 8)
+	def getMCParam_P2(self):
+		"""Get register MCParam_P2"""
+		return self.read(REG.MCParam_P2, 8)
 	# Bits P2
-	# P counter, active when RPS_select=”1”
+	# 3.2.8. P counter, active when RPS_select="1"
 	#           (d): 2Fh; default values of R2, P2, S2 generate 435.0 MHz in FSK mode 
 	
-	# Register MCParam_12
+	# Register MCParam_S2
 	
-	def setMCParam_12(self, val):
-		"""Set register MCParam_12"""
-		self.write(REG.MCParam_12, val, 8)
-	def getMCParam_12(self):
-		"""Get register MCParam_12"""
-		return self.read(REG.MCParam_12, 8)
+	def setMCParam_S2(self, val):
+		"""Set register MCParam_S2"""
+		self.write(REG.MCParam_S2, val, 8)
+	def getMCParam_S2(self):
+		"""Get register MCParam_S2"""
+		return self.read(REG.MCParam_S2, 8)
 	# Bits S2
-	# S counter, active when RPS_select=”1”
+	# 3.2.8. S counter, active when RPS_select="1"
 	#           (d): 19h; default values of R2, P2, S2 generate 435.0 MHz in FSK mode 
 	
-	# Register MCParam_13
+	# Register MCParam_reserved
 	
-	def setMCParam_13(self, val):
-		"""Set register MCParam_13"""
-		self.write(REG.MCParam_13, val, 8)
-	def getMCParam_13(self):
-		"""Get register MCParam_13"""
-		return self.read(REG.MCParam_13, 8)
+	def setMCParam_reserved(self, val):
+		"""Set register MCParam_reserved"""
+		self.write(REG.MCParam_reserved, val, 8)
+	def getMCParam_reserved(self):
+		"""Get register MCParam_reserved"""
+		return self.read(REG.MCParam_reserved, 8)
 	# Bits reserved_0
 	# Register IRQParam_1
 	
@@ -301,8 +304,8 @@ class SX1212_Base:
 	#           Writing a 1 anytime clears flag (if set) and launches a new Rx or Tx process 
 	
 	# Bits Res
-	# (d): “0”, should be set to “1”.
-	#           Note: “0” disables the RSSI IRQ source. It can be left enabled at any time, 
+	# (d): “0", should be set to “1".
+	#           Note: “0" disables the RSSI IRQ source. It can be left enabled at any time, 
 	#           and the user can choose to map this interrupt to IRQ0/IRQ1 or not. 
 	
 	# Bits RSSI_irq
@@ -311,11 +314,12 @@ class SX1212_Base:
 	#           Writing ‘1’ clears the bit 
 	
 	# Bits PLL_locked
-	# PLL status: 
-	#           Writing a ‘1’ clears the bit 
+	# 3.2.7. PLL status:
+	#           The lock status can be read on bit IRQParam_PLL_lock, and must be cleared 
+	#           by writing a "1" to this same register. 
 	
 	# Bits PLL_lock_en
-	# PLL_lock detect flag mapped to pin 23: 
+	# 3.2.7. PLL_lock detect flag mapped to pin 23: 
 	# Register IRQParam_4
 	
 	def setIRQParam_4(self, val):
@@ -334,24 +338,24 @@ class SX1212_Base:
 		"""Get register RXParam_1"""
 		return self.read(REG.RXParam_1, 8)
 	# Bits PassiveFilt
-	# Typical single sideband bandwidth of the passive low-pass filter. PassiveFilt  = 0000  65 kHz 
+	# 3.4.4.1. Typical single sideband bandwidth of the passive low-pass filter. PassiveFilt  = 0000  65 kHz 
 	# Bits ButterFilt
-	# Sets the receiver bandwidth. For BW information please refer to sections 3.4.5 (FSK) and 3.4.6 (OOK).
+	# 3.4.4.2. Sets the receiver bandwidth. For BW information please refer to sections 3.4.5 (FSK) and 3.4.6 (OOK).
 	#           f_c  = f_0 + 200kHz * (f_xtal MHz/12.8MHz) * ((1 + Val(ButterFilt))/8)
-	#           (d): “0011” => fC = 200 kHz 
+	#           (d): “0011" => fC = 200 kHz 
 	
-	# Register RXParam_2
+	# Register RXParam_PolypFilt_center
 	
-	def setRXParam_2(self, val):
-		"""Set register RXParam_2"""
-		self.write(REG.RXParam_2, val, 8)
-	def getRXParam_2(self):
-		"""Get register RXParam_2"""
-		return self.read(REG.RXParam_2, 8)
+	def setRXParam_PolypFilt_center(self, val):
+		"""Set register RXParam_PolypFilt_center"""
+		self.write(REG.RXParam_PolypFilt_center, val, 8)
+	def getRXParam_PolypFilt_center(self):
+		"""Get register RXParam_PolypFilt_center"""
+		return self.read(REG.RXParam_PolypFilt_center, 8)
 	# Bits PolypFilt_center
-	# Central frequency of the polyphase filter (100kHz recommended):
+	# 3.4.4.2. Central frequency of the polyphase filter (100kHz recommended):
 	#           f  = 200kHz * (F_xtal MHz/12.8MHz) * ((1 + Val (PolypFilt _ center))/8)
-	#           (d):“0011” => f0 = 100 kHz 
+	#           (d):“0011" => f0 = 100 kHz 
 	
 	# Bits reserved_0
 	# Register RXParam_3
@@ -365,36 +369,36 @@ class SX1212_Base:
 	# Bits PolypFilt_on
 	# Enable of the polyphase filter, in OOK Rx mode: 
 	# Bits Bitsync_off
-	# Bit synchronizer: control in Continuous Rx mode: 
+	# 5.2.3. Bit synchronizer: control in Continuous Rx mode: 
 	# Bits Sync_on
-	# Sync word recognition: 
+	# 5.2.3. Sync word recognition: 
 	# Bits Sync_size
-	# Sync word size: 
+	# 5.2.3. Sync word size: 
 	# Bits Sync_tol
-	# Number of errors tolerated in the Sync word recognition: 
+	# 5.2.3. Number of errors tolerated in the Sync word recognition: 
 	# Bits reserved_0
-	# Register RXParam_4
+	# Register RXParam_OOK_Thresh
 	
-	def setRXParam_4(self, val):
-		"""Set register RXParam_4"""
-		self.write(REG.RXParam_4, val, 8)
-	def getRXParam_4(self):
-		"""Get register RXParam_4"""
-		return self.read(REG.RXParam_4, 8)
+	def setRXParam_OOK_Thresh(self, val):
+		"""Set register RXParam_OOK_Thresh"""
+		self.write(REG.RXParam_OOK_Thresh, val, 8)
+	def getRXParam_OOK_Thresh(self):
+		"""Get register RXParam_OOK_Thresh"""
+		return self.read(REG.RXParam_OOK_Thresh, 8)
 	# Bits OOK_Thresh
 	# OOK fixed threshold or min threshold in peak mode. By default at 6dB. 
-	#           (d): “00000100” assuming 0.5dB RSSI step. 
+	#           (d): “00000100" assuming 0.5dB RSSI step. 
 	
-	# Register RXParam_5
-	# RSSI output, 0.5 dB / bit
+	# Register RXParam_RSSI
+	# 3.4.7. RSSI output, 0.5 dB / bit
 	#       Note: READ-ONLY (not to be written) 
 	
-	def setRXParam_5(self, val):
-		"""Set register RXParam_5"""
-		self.write(REG.RXParam_5, val, 8)
-	def getRXParam_5(self):
-		"""Get register RXParam_5"""
-		return self.read(REG.RXParam_5, 8)
+	def setRXParam_RSSI(self, val):
+		"""Set register RXParam_RSSI"""
+		self.write(REG.RXParam_RSSI, val, 8)
+	def getRXParam_RSSI(self):
+		"""Get register RXParam_RSSI"""
+		return self.read(REG.RXParam_RSSI, 8)
 	# Bits RSSI_val
 	# Register RXParam_6
 	
@@ -422,7 +426,7 @@ class SX1212_Base:
 		return self.read(REG.SYNCParam, 32)
 	# Bits Sync_value
 	# 1st Byte of Sync word
-	#           (d): “00000000” 
+	#           (d): “00000000" 
 	
 	# Register TXParam
 	
@@ -433,9 +437,9 @@ class SX1212_Base:
 		"""Get register TXParam"""
 		return self.read(REG.TXParam, 8)
 	# Bits InterpFilt
-	# Tx Interpolation filter cut off frequency:
+	# 3.3.6. Tx Interpolation filter cut off frequency:
 	#           f_c = 200kHz * (F_xtal MHz/12.8MHz) * ((1 + Val(InterpFiltTx))/8)
-	#           (d): “0111” => fC = 200 kHz 
+	#           (d): “0111" => fC = 200 kHz 
 	
 	# Bits Pout
 	# Tx output power (1 step ≈ 3 dB): 
@@ -453,7 +457,7 @@ class SX1212_Base:
 	# Clkout control 
 	# Bits Clkout_freq
 	# Frequency of the signal provided on CLKOUT:
-	#           fclkout = f_xtal                     if Clkout_freq = “00000”
+	#           fclkout = f_xtal                     if Clkout_freq = “00000"
 	#           fclkout = f_xtal / (2 ⋅ Clkout_freq) otherwise
 	#           (d): 01111 (= 427 kHz) 
 	
@@ -467,10 +471,10 @@ class SX1212_Base:
 		"""Get register PKTParam_1"""
 		return self.read(REG.PKTParam_1, 8)
 	# Bits Manchester_on
-	# Enable Manchester encoding/decoding: 
+	# 5.5.6.1. Enable Manchester encoding/decoding: 
 	# Bits Payload_length
 	# If Pkt_format=0, payload length.
-	#           If Pkt_format=1, max length in Rx, not used in Tx. (d): “0000000” 
+	#           If Pkt_format=1, max length in Rx, not used in Tx. (d): “0000000" 
 	
 	# Register PKTParam_2
 	
@@ -495,7 +499,7 @@ class SX1212_Base:
 	# Bits Preamble_size
 	# Size of the preamble to be transmitted: 
 	# Bits Whitening_on
-	# Whitening/dewhitening process: 
+	# 5.5.6.2. Whitening/dewhitening process: 
 	# Bits CRC_on
 	# CRC calculation/check: 
 	# Bits Adrs_filt
